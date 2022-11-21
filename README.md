@@ -14,9 +14,6 @@ Coarse for auxiliary and fine for lead loss
  2. Unripe apple
 
 
-### F1 Curve
-![alt text](https://github.com/Pragi02/Apple_Classifier/blob/main/F1_curve.png)
-
 ### Precision Curve
 ![alt text](https://github.com/Pragi02/Apple_Classifier/blob/main/P_curve.png)
 
@@ -26,14 +23,12 @@ Coarse for auxiliary and fine for lead loss
 ### Precision Recall Curve
 ![alt text](https://github.com/Pragi02/Apple_Classifier/blob/main/PR_curve.png)
 
+### F1 Curve
+![alt text](https://github.com/Pragi02/Apple_Classifier/blob/main/F1_curve.png)
+
 ### Confusion Matrix
 ![alt text](https://github.com/Pragi02/Apple_Classifier/blob/main/confusion_matrix.png)
 
-## Prediction 
-![alt text](https://github.com/Pragi02/Apple_Classifier/blob/main/test_batch0_pred.jpg)
-
-## Labels
-![alt text](https://github.com/Pragi02/Apple_Classifier/blob/main/test_batch0_labels.jpg)
 
 ## Results: 
 1. box_loss — bounding box regression loss (Mean Squared Error).
@@ -43,3 +38,53 @@ Coarse for auxiliary and fine for lead loss
 5. Recall measures how much of the true bbox were correctly predicted ( True positives / (True positives + False negatives)). 
 6. ‘mAP_0.5’ is the mean Average Precision (mAP) at IoU (Intersection over Union) threshold of 0.5.
 7. ‘ mAP_0.5:0.95’ is the average mAP over different IoU thresholds, ranging from 0.5 to 0.95.
+
+
+## Prediction 
+![alt text](https://github.com/Pragi02/Apple_Classifier/blob/main/test_batch0_pred.jpg)
+
+![alt text](https://github.com/Pragi02/Apple_Classifier/blob/main/test_batch0_labels.jpg)
+
+
+## How to use this repo for inference 
+
+### Clone the Official Github Repo of YOLOV7
+
+git clone https://github.com/WongKinYiu/yolov7
+
+### Change the directory
+
+%cd yolov7
+
+### Install the neccesary packages
+
+pip install -r requirements.txt
+
+## For Retraining of Module 
+
+### you can download the dataset from our roboflow project 
+
+
+pip install roboflow
+
+from roboflow import Roboflow
+rf = Roboflow(api_key="ImZ0EgeETtTF9fEJynp4")
+project = rf.workspace("pragi-singh").project("apple-detetion")
+dataset = project.version(2).download("yolov7")
+
+
+### After downloading the dataset we can put our model on training by using command and can change the parameters accordingly(we have trained our model on 1600 epochs)
+
+python train.py --batch 16 --cfg cfg/training/yolov7.yaml --epochs 1600 --data /content/yolov7/dataset/data.yaml --weights 'yolov7.pt' --device 0
+
+
+## For Inferencing of our Pretrained Model 
+
+### For Download of Model weights 
+pip install gdown 
+gdown https://drive.google.com/uc?id=1jWBhLsGjN7hhYSuxKGudeSetv3umPgOY
+
+unzip export(1).zip
+
+### For Inference
+python detect.py --weights runs/train/exp/weights/best.pt --conf 0.5 --source /content/yolov7/{Path of Image}
