@@ -13,10 +13,27 @@ Coarse for auxiliary and fine for lead loss
  1. Ripe apple
  2. Unripe apple
 
+
+### F1 Curve
 ![alt text](https://github.com/Pragi02/Apple_Classifier/blob/main/F1_curve.png)
 
+### Precision Curve
+![alt text](https://github.com/Pragi02/Apple_Classifier/blob/main/P_curve.png)
 
+### Recall Curve
+![alt text](https://github.com/Pragi02/Apple_Classifier/blob/main/R_curve.png)
 
+### Precision Recall Curve
+![alt text](https://github.com/Pragi02/Apple_Classifier/blob/main/PR_curve.png)
+
+### Confusion Matrix
+![alt text](https://github.com/Pragi02/Apple_Classifier/blob/main/confusion_matrix.png)
+
+## Prediction 
+![alt text](https://github.com/Pragi02/Apple_Classifier/blob/main/test_batch0_pred.jpg)
+
+## Labels
+![alt text](https://github.com/Pragi02/Apple_Classifier/blob/main/test_batch0_labels.jpg)
 
 ## Results: 
 1. box_loss — bounding box regression loss (Mean Squared Error).
