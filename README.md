@@ -13,6 +13,10 @@ Coarse for auxiliary and fine for lead loss
  1. Ripe apple
  2. Unripe apple
 
+![alt text](https://github.com/Pragi02/Apple_Classifier/blob/main/F1_curve.png)
+
+
+
 
 ## Results: 
 1. box_loss — bounding box regression loss (Mean Squared Error).
